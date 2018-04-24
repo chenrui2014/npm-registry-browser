@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
 import { isMobile } from "../utils/helpers";
-import { apiNpmsIo } from "../services/apis";
+import { apiNpmRegistry } from "../services/apis";
 import { parseQueryString } from "../utils/url";
 
 import Search from "../components/Search";
@@ -29,7 +29,7 @@ const SearchContainer = ({ history, location, className, style }) => (
     <Search
       searchQuery={parseQueryString(location.search).q || ""}
       isMobile={isMobile(navigator && navigator.userAgent)}
-      fetchInfos={compileSearchPackage(apiNpmsIo().suggestions)}
+      fetchInfos={compileSearchPackage(apiNpmRegistry().search)}
       goToPackage={compileGoToPackage(history)}
       goToSearchResults={compileGoToSearchResults(history)}
     />

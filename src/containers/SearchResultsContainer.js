@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { LinearProgress } from "material-ui/Progress";
 import { withStyles } from "material-ui/styles";
 
-import { apiNpmsIo } from "../services/apis";
+import { apiNpmRegistry } from "../services/apis";
 import { parseQueryString } from "../utils/url";
 
 import SearchResults from "../components/SearchResults";
@@ -67,7 +67,7 @@ class SearchResultsContainer extends Component {
   }
   async fetchSearchResults(searchValue) {
     try {
-      const { results, total } = await apiNpmsIo().search(searchValue);
+      const { results, total } = await apiNpmRegistry().search(searchValue);
       this.setState({
         results,
         total,
